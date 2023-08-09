@@ -13,7 +13,16 @@ environment {
     stages {
         stage("build"){
             steps {
+               echo "..........build started......."
                 sh 'mvn clean deploy'
+               echo ".........buid completed......"
+            }
+        }
+        stage{
+            steps {
+                 echo "........unit test started........"
+                 sh 'mvn surefire-report: report'
+                 echo "........unit test completed......"
             }
         }
 
