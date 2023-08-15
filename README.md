@@ -1,4 +1,4 @@
-# Ttrend application
+# Ttrend application= HELLO WORLD 
 #Hello world
 
 This is a small applicaiton which contains main and test folders.  
