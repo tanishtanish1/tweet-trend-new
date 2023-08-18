@@ -1,4 +1,6 @@
 def registry = 'https://tanishval.jfrog.io/'
+def imageName = 'tanishval.jfrog.io/galaxy-docker/ttrend'
+def version   = '2.1.2'
 pipeline {
     agent {
         node {
@@ -73,6 +75,29 @@ environment {
                 }
             }
         }
+
+
+           stage(" Docker Build ") {
+             steps {
+               script {
+                  echo '<--------------- Docker Build Started --------------->'
+                  app = docker.build(imageName+":"+version)
+                  echo '<--------------- Docker Build Ends --------------->'
+               }
+             }
+           }
+
+                   stage (" Docker Publish "){
+               steps {
+                   script {
+                      echo '<--------------- Docker Publish Started --------------->'
+                       docker.withRegistry(registry, '65367a7d-d062-44bd-95d1-2f24f5a1b4b4'){
+                           app.push()
+                       }
+                      echo '<--------------- Docker Publish Ended --------------->'
+                   }
+               }
+           }
 
     }
 
