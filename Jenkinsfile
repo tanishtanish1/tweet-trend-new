@@ -1,5 +1,5 @@
 def registry = 'https://tanishval.jfrog.io/'
-ipeline {
+pipeline {
     agent {
         node {
             label 'maven-slave'
