@@ -1,5 +1,5 @@
 def registry = 'https://tanishval.jfrog.io/'
-def imageName = 'tanishval.jfrog.io/galaxy-docker/ttrend'
+def imageName = 'tanishval.jfrog.io/galaxy-docker-local/ttrend'
 def version   = '2.1.2'
 pipeline {
     agent {
